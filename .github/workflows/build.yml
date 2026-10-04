@@ -12,8 +12,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_16.app/Contents/Developer
+      - name: Select Xcode and install iOS runtime
+        run: |
+          sudo xcode-select -s /Applications/Xcode_16.app/Contents/Developer
+          xcodebuild -downloadPlatform iOS
 
       - name: Install XcodeGen
         run: brew install xcodegen
@@ -27,6 +29,7 @@ jobs:
             -project MuscuLog.xcodeproj \
             -scheme MuscuLog \
             -destination 'generic/platform=iOS' \
+            -sdk iphoneos \
             -configuration Release \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
