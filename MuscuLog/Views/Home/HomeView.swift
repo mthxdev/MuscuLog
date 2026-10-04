@@ -2,8 +2,11 @@ import SwiftUI
 import SwiftData
 
 struct HomeView: View {
+    @Environment(\.modelContext) private var modelContext
     @Query(sort: \Program.createdAt) private var programs: [Program]
     @Query(sort: \CompletedWorkout.date, order: .reverse) private var completedWorkouts: [CompletedWorkout]
+
+    @State private var showingAddProgram = false
 
     var body: some View {
         NavigationStack {
@@ -31,7 +34,7 @@ struct HomeView: View {
                             .foregroundStyle(.secondary)
                     } else {
                         ForEach(programs) { program in
-                            HStack {
+                            NavigationLink(destination: ProgramDetailView(program: program)) {
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text(program.name)
                                         .font(.headline)
@@ -39,19 +42,34 @@ struct HomeView: View {
                                         .font(.caption)
                                         .foregroundStyle(.secondary)
                                 }
-                                Spacer()
-                                Image(systemName: "chevron.right")
-                                    .foregroundStyle(.secondary)
-                                    .font(.caption)
+                                .padding(.vertical, 4)
                             }
-                            .padding(.vertical, 4)
                         }
+                        .onDelete(perform: deletePrograms)
                     }
                 } header: {
                     Text("Mes programmes")
                 }
             }
             .navigationTitle("MuscuLog")
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button {
+                        showingAddProgram = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
+            .sheet(isPresented: $showingAddProgram) {
+                ProgramFormView()
+            }
+        }
+    }
+
+    private func deletePrograms(at offsets: IndexSet) {
+        for index in offsets {
+            modelContext.delete(programs[index])
         }
     }
 }
