@@ -61,12 +61,11 @@ struct ActiveWorkoutView: View {
         }
     }
 
+    @MainActor
     private func getPreviousExercise(name: String) -> CompletedExercise? {
-        // On récupère toutes les séances passées
         let descriptor = FetchDescriptor<CompletedWorkout>(sortBy: [SortDescriptor(\.date, order: .reverse)])
         let allWorkouts = (try? modelContext.fetch(descriptor)) ?? []
         
-        // On cherche la plus récente qui contient le même exercice
         for w in allWorkouts {
             if let ex = w.exercises.first(where: { $0.exerciseName == name }) {
                 return ex
@@ -75,6 +74,7 @@ struct ActiveWorkoutView: View {
         return nil
     }
 
+    @MainActor
     private func startWorkout() {
         guard completedWorkout == nil else { return }
 
@@ -91,13 +91,10 @@ struct ActiveWorkoutView: View {
             compEx.workout = newCompletedWorkout
             modelContext.insert(compEx)
 
-            // Récupère l'exercice de la séance précédente pour pré-remplir les perfs
             let previousEx = getPreviousExercise(name: exTemplate.name)
 
             for i in 1...exTemplate.targetSets {
-                // On cherche la série correspondante dans l'ancienne séance
                 let prevSet = previousEx?.sets.first(where: { $0.setNumber == i })
-                
                 let weight = prevSet?.weight ?? 0
                 let reps = prevSet?.reps ?? 0
                 
@@ -110,6 +107,7 @@ struct ActiveWorkoutView: View {
         completedWorkout = newCompletedWorkout
     }
 
+    @MainActor
     private func finishWorkout() {
         completedWorkout?.finishedAt = Date()
         try? modelContext.save()
@@ -117,6 +115,7 @@ struct ActiveWorkoutView: View {
         dismiss()
     }
 
+    @MainActor
     private func cancelWorkout() {
         if let completedWorkout {
             modelContext.delete(completedWorkout)
