@@ -10,6 +10,10 @@ struct MuscuLogApp: App {
         .modelContainer(for: [
             Program.self,
             CompletedWorkout.self
-        ])
+        ]) { result in
+            if case .success(let container) = result {
+                InitialDataLoader.loadIfEmpty(context: container.mainContext)
+            }
+        }
     }
 }
