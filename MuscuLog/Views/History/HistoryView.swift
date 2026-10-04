@@ -15,18 +15,20 @@ struct HistoryView: View {
                     )
                 } else {
                     ForEach(workouts) { workout in
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(workout.workoutName)
-                                .font(.headline)
-                            HStack {
-                                Text(workout.programName)
-                                Text("—")
-                                Text(workout.date.formatted(date: .long, time: .omitted))
+                        NavigationLink(destination: HistoryDetailView(workout: workout)) {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(workout.workoutName)
+                                    .font(.headline)
+                                HStack {
+                                    Text(workout.programName)
+                                    Text("—")
+                                    Text(workout.date.formatted(date: .numeric, time: .shortened))
+                                }
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
                             }
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
+                            .padding(.vertical, 4)
                         }
-                        .padding(.vertical, 4)
                     }
                 }
             }

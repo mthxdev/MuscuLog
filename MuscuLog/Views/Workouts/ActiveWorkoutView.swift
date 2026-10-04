@@ -7,7 +7,6 @@ struct ActiveWorkoutView: View {
 
     let workoutTemplate: WorkoutTemplate
 
-    // État local pour le workout en cours
     @State private var completedWorkout: CompletedWorkout?
     @State private var showingCancelAlert = false
 
@@ -62,25 +61,47 @@ struct ActiveWorkoutView: View {
         }
     }
 
+    private func getPreviousExercise(name: String) -> CompletedExercise? {
+        // On récupère toutes les séances passées
+        let descriptor = FetchDescriptor<CompletedWorkout>(sortBy: [SortDescriptor(\.date, order: .reverse)])
+        let allWorkouts = (try? modelContext.fetch(descriptor)) ?? []
+        
+        // On cherche la plus récente qui contient le même exercice
+        for w in allWorkouts {
+            if let ex = w.exercises.first(where: { $0.exerciseName == name }) {
+                return ex
+            }
+        }
+        return nil
+    }
+
     private func startWorkout() {
         guard completedWorkout == nil else { return }
 
-        // Créer l'objet historique
         let newCompletedWorkout = CompletedWorkout(
             programName: workoutTemplate.program?.name ?? "Sans programme",
             workoutName: workoutTemplate.name
         )
         modelContext.insert(newCompletedWorkout)
 
-        // Générer les exercices et les séries vides
         let sortedTemplates = workoutTemplate.exercises.sorted(by: { $0.displayOrder < $1.displayOrder })
+        
         for (index, exTemplate) in sortedTemplates.enumerated() {
             let compEx = CompletedExercise(exerciseName: exTemplate.name, displayOrder: index)
             compEx.workout = newCompletedWorkout
             modelContext.insert(compEx)
 
+            // Récupère l'exercice de la séance précédente pour pré-remplir les perfs
+            let previousEx = getPreviousExercise(name: exTemplate.name)
+
             for i in 1...exTemplate.targetSets {
-                let compSet = CompletedSet(weight: 0, reps: 0, setNumber: i)
+                // On cherche la série correspondante dans l'ancienne séance
+                let prevSet = previousEx?.sets.first(where: { $0.setNumber == i })
+                
+                let weight = prevSet?.weight ?? 0
+                let reps = prevSet?.reps ?? 0
+                
+                let compSet = CompletedSet(weight: weight, reps: reps, setNumber: i)
                 compSet.exercise = compEx
                 modelContext.insert(compSet)
             }
