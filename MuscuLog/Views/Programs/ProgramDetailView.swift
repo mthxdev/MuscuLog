@@ -6,7 +6,6 @@ struct ProgramDetailView: View {
     @Bindable var program: Program
 
     @State private var showingEditProgram = false
-    @State private var showingAddWorkout = false
 
     var sortedWorkouts: [WorkoutTemplate] {
         program.workouts.sorted { $0.displayOrder < $1.displayOrder }
@@ -14,21 +13,22 @@ struct ProgramDetailView: View {
 
     var body: some View {
         List {
-            // Séances du programme
             Section {
                 if sortedWorkouts.isEmpty {
-                    Text("Aucune séance")
+                    Text("Aucune séance. Ajoute-en une pour commencer !")
                         .foregroundStyle(.secondary)
                 } else {
                     ForEach(sortedWorkouts) { workout in
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text(workout.name)
-                                .font(.headline)
-                            Text("\(workout.exercises.count) exercice\(workout.exercises.count > 1 ? "s" : "")")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
+                        NavigationLink(destination: WorkoutDetailView(workout: workout)) {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(workout.name)
+                                    .font(.headline)
+                                Text("\(workout.exercises.count) exercice\(workout.exercises.count > 1 ? "s" : "")")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                            .padding(.vertical, 4)
                         }
-                        .padding(.vertical, 4)
                     }
                     .onDelete(perform: deleteWorkouts)
                 }
@@ -41,7 +41,7 @@ struct ProgramDetailView: View {
             ToolbarItem(placement: .primaryAction) {
                 Menu {
                     Button {
-                        showingAddWorkout = true
+                        addWorkoutAutomatically()
                     } label: {
                         Label("Ajouter une séance", systemImage: "plus")
                     }
@@ -58,9 +58,13 @@ struct ProgramDetailView: View {
         .sheet(isPresented: $showingEditProgram) {
             ProgramFormView(program: program)
         }
-        .sheet(isPresented: $showingAddWorkout) {
-            WorkoutFormView(program: program)
-        }
+    }
+
+    private func addWorkoutAutomatically() {
+        let newName = "Séance \(program.workouts.count + 1)"
+        let newWorkout = WorkoutTemplate(name: newName, displayOrder: program.workouts.count)
+        newWorkout.program = program
+        modelContext.insert(newWorkout)
     }
 
     private func deleteWorkouts(at offsets: IndexSet) {
@@ -69,12 +73,4 @@ struct ProgramDetailView: View {
             modelContext.delete(workout)
         }
     }
-}
-
-#Preview {
-    let program = Program(name: "Upper/Lower")
-    return NavigationStack {
-        ProgramDetailView(program: program)
-    }
-    .modelContainer(for: Program.self, inMemory: true)
 }
