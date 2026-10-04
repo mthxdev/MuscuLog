@@ -73,21 +73,26 @@ class BackupManager {
         try? jsonData.write(to: fileUrl)
     }
 
+    /// Supprime intégralement l'historique de l'application
+    func deleteAllData(context: ModelContext) {
+        try? context.delete(model: CompletedWorkout.self)
+        try? context.delete(model: CompletedExercise.self)
+        try? context.delete(model: CompletedSet.self)
+        try? context.save()
+    }
+
     /// Importe les données d'un fichier JSON
     func importBackup(from url: URL, context: ModelContext) throws {
-        // Demande d'accès sécurisé au fichier externe
         guard url.startAccessingSecurityScopedResource() else { return }
         defer { url.stopAccessingSecurityScopedResource() }
 
         let jsonData = try Data(contentsOf: url)
-        
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
-        
         let backup = try decoder.decode(BackupData.self, from: jsonData)
 
-        // Effacer l'ancien historique pour éviter les doublons
-        try? context.delete(model: CompletedWorkout.self)
+        // Effacer l'ancien historique DÉFINITIVEMENT pour éviter les doublons
+        deleteAllData(context: context)
 
         // Réinsérer toutes les séances
         for bw in backup.workouts {

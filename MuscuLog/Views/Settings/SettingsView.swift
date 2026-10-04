@@ -12,10 +12,16 @@ struct SettingsView: View {
         NavigationStack {
             List {
                 Section {
-                    Text("À chaque fois que tu termines une séance, MuscuLog génère automatiquement un fichier de sauvegarde (MuscuLog_Sauvegarde.json) dans l'application Fichiers de ton iPhone (dossier 'Sur mon iPhone' > MuscuLog).")
+                    Text("À chaque fois que tu termines une séance, MuscuLog génère automatiquement un fichier de sauvegarde dans l'application Fichiers (dossier 'Sur mon iPhone' > MuscuLog).")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     
+                    Button {
+                        BackupManager.shared.autoBackup(context: modelContext)
+                    } label: {
+                        Label("Forcer la création du dossier", systemImage: "folder.badge.plus")
+                    }
+
                     Button {
                         showingFileImporter = true
                     } label: {
@@ -23,6 +29,18 @@ struct SettingsView: View {
                     }
                 } header: {
                     Text("Sauvegarde automatique")
+                }
+
+                Section {
+                    Button(role: .destructive) {
+                        BackupManager.shared.deleteAllData(context: modelContext)
+                    } label: {
+                        Label("Tout supprimer", systemImage: "trash")
+                    }
+                } header: {
+                    Text("Zone de danger")
+                } footer: {
+                    Text("Efface instantanément tout l'historique et la progression.")
                 }
 
                 Section {
