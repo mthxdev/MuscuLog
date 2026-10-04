@@ -3411,7 +3411,11 @@ struct InitialDataLoader {
         decoder.dateDecodingStrategy = .iso8601
         if let backup = try? decoder.decode(BackupData.self, from: jsonData) {
             for bw in backup.workouts {
-                let workout = CompletedWorkout(date: bw.date, startedAt: bw.startedAt, finishedAt: bw.finishedAt ?? bw.startedAt.addingTimeInterval(3600), programName: bw.programName, workoutName: bw.workoutName)
+                let workout = CompletedWorkout(programName: bw.programName, workoutName: bw.workoutName)
+                workout.date = bw.date
+                workout.startedAt = bw.startedAt
+                workout.finishedAt = bw.finishedAt ?? bw.startedAt.addingTimeInterval(3600)
+                
                 for be in bw.exercises {
                     let exercise = CompletedExercise(exerciseName: be.exerciseName, displayOrder: be.displayOrder)
                     for bs in be.sets {
