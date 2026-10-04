@@ -4,8 +4,17 @@ import SwiftData
 struct SettingsView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var showingFileImporter = false
+    
+    // Alertes
+    @State private var showingAlert = false
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
+    
+    // Alerte destructive
+    @State private var showingDeleteConfirm = false
+    
+    // Alerte de restauration
     @State private var showingImportAlert = false
-    @State private var importMessage = ""
     @State private var importedURL: URL?
 
     var body: some View {
@@ -18,6 +27,9 @@ struct SettingsView: View {
                     
                     Button {
                         BackupManager.shared.autoBackup(context: modelContext)
+                        alertTitle = "Succès"
+                        alertMessage = "La sauvegarde a été forcée. Le dossier MuscuLog devrait maintenant être visible dans l'application Fichiers."
+                        showingAlert = true
                     } label: {
                         Label("Forcer la création du dossier", systemImage: "folder.badge.plus")
                     }
@@ -33,7 +45,7 @@ struct SettingsView: View {
 
                 Section {
                     Button(role: .destructive) {
-                        BackupManager.shared.deleteAllData(context: modelContext)
+                        showingDeleteConfirm = true
                     } label: {
                         Label("Tout supprimer", systemImage: "trash")
                     }
@@ -42,19 +54,29 @@ struct SettingsView: View {
                 } footer: {
                     Text("Efface instantanément tout l'historique et la progression.")
                 }
-
-                Section {
-                    HStack {
-                        Text("Version")
-                        Spacer()
-                        Text("1.0")
-                            .foregroundStyle(.secondary)
-                    }
-                } header: {
-                    Text("À propos")
-                }
             }
             .navigationTitle("Réglages")
+            
+            // Alerte de confirmation de suppression totale
+            .alert("Supprimer tout l'historique ?", isPresented: $showingDeleteConfirm) {
+                Button("Annuler", role: .cancel) { }
+                Button("Supprimer définitivement", role: .destructive) {
+                    BackupManager.shared.deleteAllData(context: modelContext)
+                    alertTitle = "Suppression réussie"
+                    alertMessage = "Toutes les séances ont été effacées de l'historique."
+                    showingAlert = true
+                }
+            } message: {
+                Text("Cette action est irréversible. Toutes tes séances et statistiques de progression seront effacées.")
+            }
+            
+            // Alerte d'information générique (Succès ou Erreur)
+            .alert(alertTitle, isPresented: $showingAlert) {
+                Button("OK", role: .cancel) { }
+            } message: {
+                Text(alertMessage)
+            }
+            
             .fileImporter(
                 isPresented: $showingFileImporter,
                 allowedContentTypes: [.json],
@@ -64,11 +86,12 @@ struct SettingsView: View {
                 case .success(let urls):
                     if let url = urls.first {
                         importedURL = url
-                        importMessage = "Attention : Restaurer une sauvegarde va effacer ton historique actuel pour le remplacer par celui du fichier. Veux-tu continuer ?"
                         showingImportAlert = true
                     }
                 case .failure(let error):
-                    print("Erreur d'import : \(error)")
+                    alertTitle = "Erreur"
+                    alertMessage = "Impossible de lire le fichier : \(error.localizedDescription)"
+                    showingAlert = true
                 }
             }
             .alert("Confirmer la restauration", isPresented: $showingImportAlert) {
@@ -77,13 +100,18 @@ struct SettingsView: View {
                     if let url = importedURL {
                         do {
                             try BackupManager.shared.importBackup(from: url, context: modelContext)
+                            alertTitle = "Restauration réussie"
+                            alertMessage = "L'historique a été importé avec succès !"
+                            showingAlert = true
                         } catch {
-                            print("Erreur pendant la restauration : \(error)")
+                            alertTitle = "Erreur de restauration"
+                            alertMessage = "Le fichier JSON est invalide ou corrompu. Erreur: \(error.localizedDescription)"
+                            showingAlert = true
                         }
                     }
                 }
             } message: {
-                Text(importMessage)
+                Text("Attention : Restaurer une sauvegarde va effacer ton historique actuel pour le remplacer par celui du fichier. Veux-tu continuer ?")
             }
         }
     }
