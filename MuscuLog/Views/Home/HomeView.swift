@@ -30,8 +30,11 @@ struct HomeView: View {
                 // Programmes
                 Section {
                     if programs.isEmpty {
-                        Text("Aucun programme")
-                            .foregroundStyle(.secondary)
+                        ContentUnavailableView(
+                            "Aucun programme",
+                            systemImage: "list.bullet.clipboard",
+                            description: Text("Crée ton premier programme pour commencer à t'entraîner.")
+                        )
                     } else {
                         ForEach(programs) { program in
                             NavigationLink(destination: ProgramDetailView(program: program)) {

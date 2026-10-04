@@ -111,6 +111,11 @@ struct ActiveWorkoutView: View {
     private func finishWorkout() {
         completedWorkout?.finishedAt = Date()
         try? modelContext.save()
+        
+        // Vibration de succès native Apple
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+        
         BackupManager.shared.autoBackup(context: modelContext)
         dismiss()
     }
