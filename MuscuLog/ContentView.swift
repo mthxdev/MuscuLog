@@ -13,6 +13,11 @@ struct ContentView: View {
                     Label("Historique", systemImage: "clock.fill")
                 }
 
+            ProgressionView()
+                .tabItem {
+                    Label("Progression", systemImage: "chart.xyaxis.line")
+                }
+
             SettingsView()
                 .tabItem {
                     Label("Réglages", systemImage: "gearshape.fill")

@@ -113,6 +113,7 @@ struct ActiveWorkoutView: View {
     private func finishWorkout() {
         completedWorkout?.finishedAt = Date()
         try? modelContext.save()
+        BackupManager.shared.autoBackup(context: modelContext)
         dismiss()
     }
 

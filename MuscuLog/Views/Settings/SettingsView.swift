@@ -1,23 +1,28 @@
 import SwiftUI
+import SwiftData
 
 struct SettingsView: View {
+    @Environment(\.modelContext) private var modelContext
+    @State private var showingFileImporter = false
+    @State private var showingImportAlert = false
+    @State private var importMessage = ""
+    @State private var importedURL: URL?
+
     var body: some View {
         NavigationStack {
             List {
                 Section {
+                    Text("À chaque fois que tu termines une séance, MuscuLog génère automatiquement un fichier de sauvegarde (MuscuLog_Sauvegarde.json) dans l'application Fichiers de ton iPhone (dossier 'Sur mon iPhone' > MuscuLog).")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    
                     Button {
-                        // TODO: Phase 9 — Export
+                        showingFileImporter = true
                     } label: {
-                        Label("Exporter mes données", systemImage: "square.and.arrow.up")
-                    }
-
-                    Button {
-                        // TODO: Phase 9 — Import
-                    } label: {
-                        Label("Importer mes données", systemImage: "square.and.arrow.down")
+                        Label("Restaurer depuis une sauvegarde", systemImage: "arrow.down.doc")
                     }
                 } header: {
-                    Text("Sauvegarde")
+                    Text("Sauvegarde automatique")
                 }
 
                 Section {
@@ -32,10 +37,36 @@ struct SettingsView: View {
                 }
             }
             .navigationTitle("Réglages")
+            .fileImporter(
+                isPresented: $showingFileImporter,
+                allowedContentTypes: [.json],
+                allowsMultipleSelection: false
+            ) { result in
+                switch result {
+                case .success(let urls):
+                    if let url = urls.first {
+                        importedURL = url
+                        importMessage = "Attention : Restaurer une sauvegarde va effacer ton historique actuel pour le remplacer par celui du fichier. Veux-tu continuer ?"
+                        showingImportAlert = true
+                    }
+                case .failure(let error):
+                    print("Erreur d'import : \(error)")
+                }
+            }
+            .alert("Confirmer la restauration", isPresented: $showingImportAlert) {
+                Button("Annuler", role: .cancel) { }
+                Button("Restaurer", role: .destructive) {
+                    if let url = importedURL {
+                        do {
+                            try BackupManager.shared.importBackup(from: url, context: modelContext)
+                        } catch {
+                            print("Erreur pendant la restauration : \(error)")
+                        }
+                    }
+                }
+            } message: {
+                Text(importMessage)
+            }
         }
     }
-}
-
-#Preview {
-    SettingsView()
 }
