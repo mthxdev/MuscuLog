@@ -2,25 +2,26 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 20) {
-                Image(systemName: "dumbbell.fill")
-                    .font(.system(size: 60))
-                    .foregroundStyle(.blue)
+        TabView {
+            HomeView()
+                .tabItem {
+                    Label("Accueil", systemImage: "house.fill")
+                }
 
-                Text("MuscuLog")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
+            HistoryView()
+                .tabItem {
+                    Label("Historique", systemImage: "clock.fill")
+                }
 
-                Text("Carnet d'entraînement")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-            }
-            .navigationTitle("Accueil")
+            SettingsView()
+                .tabItem {
+                    Label("Réglages", systemImage: "gearshape.fill")
+                }
         }
     }
 }
 
 #Preview {
     ContentView()
+        .modelContainer(for: [Program.self, CompletedWorkout.self], inMemory: true)
 }
