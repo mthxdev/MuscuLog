@@ -1,103 +1,103 @@
-﻿éiémépéoérété éSéwéiéfétéUéIé
-éiémépéoérété éSéwéiéfétéDéaétéaé
-éiémépéoérété éCéhéaérétésé
-é
-ésétéréuécété éPéréoégéréeéséséiéoénéVéiéeéwé:é éVéiéeéwé é{é
-é é é é é@éQéuéeéréyé(éséoérété:é é\éCéoémépéléeétéeédéWéoérékéoéuété.édéaétéeé,é éoérédéeéré:é é.éréeévéeéréséeé)é épéréiévéaétéeé évéaéré éwéoérékéoéuétésé:é é[éCéoémépéléeétéeédéWéoérékéoéuété]é
-é
-é é é é é/é/é éRééécéuépéèéréeé éléaé éléiésétéeé éuénéiéqéuéeé édéeésé énéoémésé édé'éeéxéeérécéiécéeésé éeéféféeécétéuééésé
-é é é é évéaéré éuénéiéqéuéeéEéxéeérécéiéséeésé:é é[éSétéréiénégé]é é{é
-é é é é é é é é évéaéré énéaéméeésé é=é éSéeété<éSétéréiénégé>é(é)é
-é é é é é é é é éféoéré éwéoérékéoéuété éiéné éwéoérékéoéuétésé é{é
-é é é é é é é é é é é é éféoéré éeéxéeérécéiéséeé éiéné éwéoérékéoéuété.éeéxéeérécéiéséeésé é{é
-é é é é é é é é é é é é é é é é énéaéméeésé.éiénéséeérété(éeéxéeérécéiéséeé.éeéxéeérécéiéséeéNéaéméeé)é
-é é é é é é é é é é é é é}é
-é é é é é é é é é}é
-é é é é é é é é éréeétéuéréné éAéréréaéyé(énéaéméeésé)é.éséoérétéeédé(é)é
-é é é é é}é
-é
-é é é é évéaéré ébéoédéyé:é éséoéméeé éVéiéeéwé é{é
-é é é é é é é é éNéaévéiégéaétéiéoénéSétéaécéké é{é
-é é é é é é é é é é é é éLéiésété é{é
-é é é é é é é é é é é é é é é é éiéfé éuénéiéqéuéeéEéxéeérécéiéséeésé.éiéséEémépétéyé é{é
-é é é é é é é é é é é é é é é é é é é é éCéoénétéeénétéUénéaévéaéiéléaébéléeéVéiéeéwé(é
-é é é é é é é é é é é é é é é é é é é é é é é é é"éAéuécéuénéeé édéoénénéééeé"é,é
-é é é é é é é é é é é é é é é é é é é é é é é é éséyésétéeéméIéméaégéeé:é é"écéhéaérété.éxéyéaéxéiésé.éléiénéeé"é,é
-é é é é é é é é é é é é é é é é é é é é é é é é édéeésécéréiépétéiéoéné:é éTéeéxété(é"éTéeéréméiénéeé édéeésé éséééaénécéeésé épéoéuéré évéoéiéré étéoéné ééévéoéléuétéiéoéné.é"é)é
-é é é é é é é é é é é é é é é é é é é é é)é
-é é é é é é é é é é é é é é é é é}é éeéléséeé é{é
-é é é é é é é é é é é é é é é é é é é é éFéoéréEéaécéhé(éuénéiéqéuéeéEéxéeérécéiéséeésé,é éiédé:é é\é.éséeéléfé)é é{é éeéxéeérécéiéséeéNéaéméeé éiéné
-é é é é é é é é é é é é é é é é é é é é é é é é éNéaévéiégéaétéiéoénéLéiénéké(édéeésétéiénéaétéiéoéné:é éEéxéeérécéiéséeéPéréoégéréeéséséiéoénéDéeétéaéiélé(éeéxéeérécéiéséeéNéaéméeé:é éeéxéeérécéiéséeéNéaéméeé,é éwéoérékéoéuétésé:é éwéoérékéoéuétésé)é)é é{é
-é é é é é é é é é é é é é é é é é é é é é é é é é é é é éTéeéxété(éeéxéeérécéiéséeéNéaéméeé)é
-é é é é é é é é é é é é é é é é é é é é é é é é é é é é é é é é é.éféoénété(é.éhéeéaédéléiénéeé)é
-é é é é é é é é é é é é é é é é é é é é é é é é é}é
-é é é é é é é é é é é é é é é é é é é é é}é
-é é é é é é é é é é é é é é é é é}é
-é é é é é é é é é é é é é}é
-é é é é é é é é é é é é é.énéaévéiégéaétéiéoénéTéiétéléeé(é"éPéréoégéréeéséséiéoéné"é)é
-é é é é é é é é é}é
-é é é é é}é
-é}é
-é
-ésétéréuécété éEéxéeérécéiéséeéPéréoégéréeéséséiéoénéDéeétéaéiélé:é éVéiéeéwé é{é
-é é é é éléeété éeéxéeérécéiéséeéNéaéméeé:é éSétéréiénégé
-é é é é éléeété éwéoérékéoéuétésé:é é[éCéoémépéléeétéeédéWéoérékéoéuété]é
-é
-é é é é é/é/é éCéaélécéuéléeé éléeé épéoéiédésé éméaéxé éséoéuéléeévééé épéoéuéré écéhéaéqéuéeé édéaétéeé
-é é é é évéaéré écéhéaérétéDéaétéaé:é é[é(édéaétéeé:é éDéaétéeé,é éméaéxéWéeéiégéhété:é éDéoéuébéléeé)é]é é{é
-é é é é é é é é évéaéré édéaétéaé:é é[é(éDéaétéeé,é éDéoéuébéléeé)é]é é=é é[é]é
-é é é é é é é é é/é/é éOéné épéaérécéoéuérété éàé élé'éeénévéeérésé épéoéuéré éaévéoéiéré élé'éoérédéréeé écéhéréoénéoéléoégéiéqéuéeé é(édéué épéléuésé éaénécéiéeéné éaéué épéléuésé érééécéeénété)é
-é é é é é é é é éféoéré éwéoérékéoéuété éiéné éwéoérékéoéuétésé.éréeévéeéréséeédé(é)é é{é
-é é é é é é é é é é é é éiéfé éléeété éeéxéeérécéiéséeé é=é éwéoérékéoéuété.éeéxéeérécéiéséeésé.éféiérésété(éwéhéeéréeé:é é{é é$é0é.éeéxéeérécéiéséeéNéaéméeé é=é=é éeéxéeérécéiéséeéNéaéméeé é}é)é é{é
-é é é é é é é é é é é é é é é é é/é/é éTéréoéuévéeéré éléeé épéoéiédésé éméaéxé édéeé écéeététéeé éséééaénécéeé
-é é é é é é é é é é é é é é é é éléeété éméaéxéWéeéiégéhété é=é éeéxéeérécéiéséeé.éséeétésé.éméaépé é{é é$é0é.éwéeéiégéhété é}é.éméaéxé(é)é é?é?é é0é
-é é é é é é é é é é é é é é é é éiéfé éméaéxéWéeéiégéhété é>é é0é é{é
-é é é é é é é é é é é é é é é é é é é é édéaétéaé.éaépépéeénédé(é(éwéoérékéoéuété.édéaétéeé,é éméaéxéWéeéiégéhété)é)é
-é é é é é é é é é é é é é é é é é}é
-é é é é é é é é é é é é é}é
-é é é é é é é é é}é
-é é é é é é é é éréeétéuéréné édéaétéaé
-é é é é é}é
-é
-é é é é évéaéré ébéoédéyé:é éséoéméeé éVéiéeéwé é{é
-é é é é é é é é éLéiésété é{é
-é é é é é é é é é é é é éSéeécétéiéoéné é{é
-é é é é é é é é é é é é é é é é éiéfé écéhéaérétéDéaétéaé.écéoéuénété é>é=é é2é é{é
-é é é é é é é é é é é é é é é é é é é é éCéhéaérété(écéhéaérétéDéaétéaé,é éiédé:é é\é.édéaétéeé)é é{é éiétéeémé éiéné
-é é é é é é é é é é é é é é é é é é é é é é é é éLéiénéeéMéaéréké(é
-é é é é é é é é é é é é é é é é é é é é é é é é é é é é éxé:é é.évéaéléuéeé(é"éDéaétéeé"é,é éiétéeémé.édéaétéeé)é,é
-é é é é é é é é é é é é é é é é é é é é é é é é é é é é éyé:é é.évéaéléuéeé(é"éPéoéiédésé éMéaéxé é(ékégé)é"é,é éiétéeémé.éméaéxéWéeéiégéhété)é
-é é é é é é é é é é é é é é é é é é é é é é é é é)é
-é é é é é é é é é é é é é é é é é é é é é é é é é.éséyémébéoélé(éCéiérécéléeé(é)é)é
-é é é é é é é é é é é é é é é é é é é é é é é é é.éiénétéeérépéoéléaétéiéoénéMéeétéhéoédé(é.éméoénéoétéoénéeé)é
-é é é é é é é é é é é é é é é é é é é é é}é
-é é é é é é é é é é é é é é é é é é é é é.éféréaéméeé(éhéeéiégéhété:é é2é5é0é)é
-é é é é é é é é é é é é é é é é é é é é é.épéaédédéiénégé(é.évéeérétéiécéaélé)é
-é é é é é é é é é é é é é é é é é}é éeéléséeé é{é
-é é é é é é é é é é é é é é é é é é é é éTéeéxété(é"éCéoémépéléèétéeé écéeété éeéxéeérécéiécéeé éséuéré éaéué éméoéiénésé é2é éséééaénécéeésé édéiéféféééréeénétéeésé épéoéuéré égééénéééréeéré éléeé égéréaépéhéiéqéuéeé.é"é)é
-é é é é é é é é é é é é é é é é é é é é é é é é é.éféoénété(é.éséuébéhéeéaédéléiénéeé)é
-é é é é é é é é é é é é é é é é é é é é é é é é é.éféoéréeégéréoéuénédéSétéyéléeé(é.éséeécéoénédéaéréyé)é
-é é é é é é é é é é é é é é é é é é é é é é é é é.épéaédédéiénégé(é.évéeérétéiécéaélé)é
-é é é é é é é é é é é é é é é é é}é
-é é é é é é é é é é é é é}é éhéeéaédéeéré:é é{é
-é é é é é é é é é é é é é é é é éTéeéxété(é"éÉévéoéléuétéiéoéné édéué éPéoéiédésé éMéaéxé"é)é
-é é é é é é é é é é é é é}é
-é
-é é é é é é é é é é é é éSéeécétéiéoéné é{é
-é é é é é é é é é é é é é é é é éFéoéréEéaécéhé(écéhéaérétéDéaétéaé.éréeévéeéréséeédé(é)é,é éiédé:é é\é.édéaétéeé)é é{é éiétéeémé éiéné
-é é é é é é é é é é é é é é é é é é é é éHéSétéaécéké é{é
-é é é é é é é é é é é é é é é é é é é é é é é é éTéeéxété(éiétéeémé.édéaétéeé.éféoéréméaététéeédé(édéaétéeé:é é.éaébébéréeévéiéaétéeédé,é étéiéméeé:é é.éoéméiététéeédé)é)é
-é é é é é é é é é é é é é é é é é é é é é é é é éSépéaécéeéré(é)é
-é é é é é é é é é é é é é é é é é é é é é é é é éTéeéxété(é"é\é(éSétéréiénégé(éféoéréméaété:é é"é%égé"é,é éiétéeémé.éméaéxéWéeéiégéhété)é)é ékégé"é)é
-é é é é é é é é é é é é é é é é é é é é é é é é é é é é é.ébéoélédé(é)é
-é é é é é é é é é é é é é é é é é é é é é}é
-é é é é é é é é é é é é é é é é é}é
-é é é é é é é é é é é é é}é éhéeéaédéeéré:é é{é
-é é é é é é é é é é é é é é é é éTéeéxété(é"éHéiésétéoéréiéqéuéeé édéeésé éréeécéoérédésé"é)é
-é é é é é é é é é é é é é}é
-é é é é é é é é é}é
-é é é é é é é é é.énéaévéiégéaétéiéoénéTéiétéléeé(éeéxéeérécéiéséeéNéaéméeé)é
-é é é é é é é é é.énéaévéiégéaétéiéoénéBéaéréTéiétéléeéDéiésépéléaéyéMéoédéeé(é.éiénéléiénéeé)é
-é é é é é}é
-é}é
-é
+﻿import SwiftUI
+import SwiftData
+import Charts
+
+struct ProgressionView: View {
+    @Query(sort: \CompletedWorkout.date, order: .reverse) private var workouts: [CompletedWorkout]
+
+    // Récupère la liste unique des noms d'exercices effectués
+    var uniqueExercises: [String] {
+        var names = Set<String>()
+        for workout in workouts {
+            for exercise in workout.exercises {
+                names.insert(exercise.exerciseName)
+            }
+        }
+        return Array(names).sorted()
+    }
+
+    var body: some View {
+        NavigationStack {
+            List {
+                if uniqueExercises.isEmpty {
+                    ContentUnavailableView(
+                        "Aucune donnée",
+                        systemImage: "chart.xyaxis.line",
+                        description: Text("Termine des séances pour voir ton évolution.")
+                    )
+                } else {
+                    ForEach(uniqueExercises, id: \.self) { exerciseName in
+                        NavigationLink(destination: ExerciseProgressionDetail(exerciseName: exerciseName, workouts: workouts)) {
+                            Text(exerciseName)
+                                .font(.headline)
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Progression")
+        }
+    }
+}
+
+struct ExerciseProgressionDetail: View {
+    let exerciseName: String
+    let workouts: [CompletedWorkout]
+
+    // Calcule le poids max soulevé pour chaque date
+    var chartData: [(date: Date, maxWeight: Double)] {
+        var data: [(Date, Double)] = []
+        // On parcourt à l'envers pour avoir l'ordre chronologique (du plus ancien au plus récent)
+        for workout in workouts.reversed() {
+            if let exercise = workout.exercises.first(where: { $0.exerciseName == exerciseName }) {
+                // Trouver le poids max de cette séance
+                let maxWeight = exercise.sets.map { $0.weight }.max() ?? 0
+                if maxWeight > 0 {
+                    data.append((workout.date, maxWeight))
+                }
+            }
+        }
+        return data
+    }
+
+    var body: some View {
+        List {
+            Section {
+                if chartData.count >= 2 {
+                    Chart(chartData, id: \.date) { item in
+                        LineMark(
+                            x: .value("Date", item.date),
+                            y: .value("Poids Max (kg)", item.maxWeight)
+                        )
+                        .symbol(Circle())
+                        .interpolationMethod(.monotone)
+                    }
+                    .frame(height: 250)
+                    .padding(.vertical)
+                } else {
+                    Text("Complète cet exercice sur au moins 2 séances différentes pour générer le graphique.")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .padding(.vertical)
+                }
+            } header: {
+                Text("Évolution du Poids Max")
+            }
+
+            Section {
+                ForEach(chartData.reversed(), id: \.date) { item in
+                    HStack {
+                        Text(item.date.formatted(date: .abbreviated, time: .omitted))
+                        Spacer()
+                        Text("\(String(format: "%g", item.maxWeight)) kg")
+                            .bold()
+                    }
+                }
+            } header: {
+                Text("Historique des records")
+            }
+        }
+        .navigationTitle(exerciseName)
+        .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
