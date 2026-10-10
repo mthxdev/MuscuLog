@@ -7,12 +7,30 @@ struct HomeView: View {
     @Query(sort: \CompletedWorkout.date, order: .reverse) private var completedWorkouts: [CompletedWorkout]
 
     @State private var showingAddProgram = false
+    @State private var showingResumeWorkout = false
+
+    private var unfinishedWorkout: CompletedWorkout? {
+        completedWorkouts.first(where: { $0.finishedAt == nil })
+    }
 
     var body: some View {
         NavigationStack {
             List {
+                if let unfinishedWorkout {
+                    Section {
+                        Button {
+                            showingResumeWorkout = true
+                        } label: {
+                            Label("Reprendre \(unfinishedWorkout.workoutName)", systemImage: "play.circle.fill")
+                                .font(.headline)
+                        }
+                    } header: {
+                        Text("Séance en cours")
+                    }
+                }
+
                 // Dernière séance
-                if let lastWorkout = completedWorkouts.first {
+                if let lastWorkout = completedWorkouts.first(where: { $0.finishedAt != nil }) {
                     Section {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(lastWorkout.workoutName)
@@ -67,7 +85,23 @@ struct HomeView: View {
             .sheet(isPresented: $showingAddProgram) {
                 ProgramFormView()
             }
+            .fullScreenCover(isPresented: $showingResumeWorkout) {
+                if let unfinishedWorkout {
+                    ActiveWorkoutView(
+                        workoutTemplate: matchingTemplate(for: unfinishedWorkout),
+                        existingWorkout: unfinishedWorkout
+                    )
+                }
+            }
         }
+    }
+
+    private func matchingTemplate(for workout: CompletedWorkout) -> WorkoutTemplate {
+        programs
+            .first(where: { $0.name == workout.programName })?
+            .workouts
+            .first(where: { $0.name == workout.workoutName })
+            ?? WorkoutTemplate(name: workout.workoutName)
     }
 
     private func deletePrograms(at offsets: IndexSet) {

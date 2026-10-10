@@ -2,6 +2,7 @@ import SwiftUI
 import SwiftData
 
 struct ActiveSetRowView: View {
+    @Environment(\.modelContext) private var modelContext
     @Bindable var set: CompletedSet
 
     // Pour l'interface, on utilise des String pour éviter l'affichage de "0" par défaut au milieu du TextField
@@ -27,6 +28,7 @@ struct ActiveSetRowView: View {
                 .onChange(of: weightString) { _, newValue in
                     let filtered = newValue.replacingOccurrences(of: ",", with: ".")
                     set.weight = Double(filtered) ?? 0
+                    saveContext()
                 }
 
             Text("kg")
@@ -44,6 +46,7 @@ struct ActiveSetRowView: View {
                 .frame(width: 60)
                 .onChange(of: repsString) { _, newValue in
                     set.reps = Int(newValue) ?? 0
+                    saveContext()
                 }
 
             Text("reps")
@@ -59,6 +62,14 @@ struct ActiveSetRowView: View {
             if set.reps > 0 {
                 repsString = String(set.reps)
             }
+        }
+    }
+
+    private func saveContext() {
+        do {
+            try modelContext.save()
+        } catch {
+            print("Impossible de sauvegarder la série : \(error.localizedDescription)")
         }
     }
 }

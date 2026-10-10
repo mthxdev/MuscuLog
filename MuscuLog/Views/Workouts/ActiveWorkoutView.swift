@@ -4,11 +4,18 @@ import SwiftData
 struct ActiveWorkoutView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.scenePhase) private var scenePhase
 
     let workoutTemplate: WorkoutTemplate
+    let existingWorkout: CompletedWorkout?
 
     @State private var completedWorkout: CompletedWorkout?
     @State private var showingCancelAlert = false
+
+    init(workoutTemplate: WorkoutTemplate, existingWorkout: CompletedWorkout? = nil) {
+        self.workoutTemplate = workoutTemplate
+        self.existingWorkout = existingWorkout
+    }
 
     var body: some View {
         NavigationStack {
@@ -19,6 +26,11 @@ struct ActiveWorkoutView: View {
                             Section {
                                 ForEach(exercise.sets.sorted(by: { $0.setNumber < $1.setNumber })) { set in
                                     ActiveSetRowView(set: set)
+                                }
+                                Button {
+                                    addSet(to: exercise)
+                                } label: {
+                                    Label("Ajouter une série", systemImage: "plus")
                                 }
                             } header: {
                                 Text(exercise.exerciseName)
@@ -58,6 +70,11 @@ struct ActiveWorkoutView: View {
             .onAppear {
                 startWorkout()
             }
+            .onChange(of: scenePhase) { _, newPhase in
+                if newPhase != .active {
+                    saveContext()
+                }
+            }
         }
     }
 
@@ -77,6 +94,11 @@ struct ActiveWorkoutView: View {
     @MainActor
     private func startWorkout() {
         guard completedWorkout == nil else { return }
+
+        if let existingWorkout {
+            completedWorkout = existingWorkout
+            return
+        }
 
         let newCompletedWorkout = CompletedWorkout(
             programName: workoutTemplate.program?.name ?? "Sans programme",
@@ -105,12 +127,31 @@ struct ActiveWorkoutView: View {
         }
 
         completedWorkout = newCompletedWorkout
+        saveContext()
+    }
+
+    @MainActor
+    private func addSet(to exercise: CompletedExercise) {
+        let nextSetNumber = (exercise.sets.map(\.setNumber).max() ?? 0) + 1
+        let newSet = CompletedSet(weight: 0, reps: 0, setNumber: nextSetNumber)
+        newSet.exercise = exercise
+        modelContext.insert(newSet)
+        saveContext()
+    }
+
+    @MainActor
+    private func saveContext() {
+        do {
+            try modelContext.save()
+        } catch {
+            print("Impossible de sauvegarder la séance : \(error.localizedDescription)")
+        }
     }
 
     @MainActor
     private func finishWorkout() {
         completedWorkout?.finishedAt = Date()
-        try? modelContext.save()
+        saveContext()
         
         // Vibration de succès native Apple
         let generator = UINotificationFeedbackGenerator()
@@ -124,7 +165,7 @@ struct ActiveWorkoutView: View {
     private func cancelWorkout() {
         if let completedWorkout {
             modelContext.delete(completedWorkout)
-            try? modelContext.save()
+            saveContext()
         }
         dismiss()
     }

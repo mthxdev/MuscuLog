@@ -15,7 +15,7 @@ struct HistoryView: View {
                     )
                 } else {
                     ForEach(workouts) { workout in
-                        NavigationLink(destination: HistoryDetailView(workout: workout)) {
+                        NavigationLink(destination: destination(for: workout)) {
                             VStack(alignment: .leading, spacing: 4) {
                                 Text(workout.workoutName)
                                     .font(.headline)
@@ -26,6 +26,11 @@ struct HistoryView: View {
                                 }
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
+                                if workout.finishedAt == nil {
+                                    Text("Reprendre la séance")
+                                        .font(.caption)
+                                        .foregroundStyle(.tint)
+                                }
                             }
                             .padding(.vertical, 4)
                         }
@@ -33,6 +38,18 @@ struct HistoryView: View {
                 }
             }
             .navigationTitle("Historique")
+        }
+    }
+
+    @ViewBuilder
+    private func destination(for workout: CompletedWorkout) -> some View {
+        if workout.finishedAt == nil {
+            ActiveWorkoutView(
+                workoutTemplate: WorkoutTemplate(name: workout.workoutName),
+                existingWorkout: workout
+            )
+        } else {
+            HistoryDetailView(workout: workout)
         }
     }
 }
